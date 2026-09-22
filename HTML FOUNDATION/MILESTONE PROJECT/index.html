@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Project - Simple Web Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .cta-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .cta-links a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .cta-links a:hover {
+            background-color: #764ba2;
+        }
+
+        .video-container {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        video {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 8px;
+            background: #000;
+        }
+
+        .image-section {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        figure {
+            display: inline-block;
+            margin: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        figcaption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table caption {
+            caption-side: top;
+            padding: 1rem;
+            background-color: #667eea;
+            color: white;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        table thead {
+            background-color: #e8eaf6;
+        }
+
+        table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #ddd;
+            background-color: #e8eaf6;
+        }
+
+        table td {
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+
+        table tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+
+        .form-section {
+            background: #f9f9f9;
+        }
+
+        form {
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-group:last-of-type {
+            border-bottom: none;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        button {
+            background-color: #667eea;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #764ba2;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 2px solid #ddd;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        footer nav ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        footer nav li {
+            display: inline-block;
+            margin: 0 1rem;
+        }
+
+        footer nav a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer nav a:hover {
+            color: #fff;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .cta-links {
+                flex-direction: column;
+            }
+
+            .cta-links a {
+                text-align: center;
+            }
+
+            footer nav li {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="header-section">
+        <div class="logo">🌐</div>
+        <h1>Welcome to Our Platform</h1>
+        <p>Discover Amazing Content and Services</p>
+    </header>
+
+    <main>
+        <!-- FIRST SECTION: INTRODUCTION -->
+        <section class="intro-section">
+            <h2>About Us</h2>
+            <p>
+                Welcome to our platform dedicated to providing quality content and services. 
+                We believe in creating meaningful experiences for our users through innovative 
+                solutions and comprehensive resources. Our mission is to empower individuals 
+                and organizations with the tools they need to succeed in today's digital world.
+            </p>
+            <p>
+                Whether you're looking to learn something new, explore our services, or get 
+                in touch with our team, you've come to the right place. We're committed to 
+                excellence and customer satisfaction in everything we do.
+            </p>
+            <div class="cta-links">
+                <a href="#contact-form">Contact Us</a>
+                <a href="#data-table">Explore Data</a>
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- SECOND SECTION: MEDIA & VIDEO -->
+        <section class="media-section">
+            <h2>Featured Video</h2>
+            <p>
+                Experience our latest content through this featured video presentation. 
+                This video showcases our platform capabilities and features that can help 
+                transform your digital presence.
+            </p>
+            <div class="video-container">
+                <video width="600" height="400" autoplay muted loop controls>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <p>
+                The video above demonstrates our core offerings and the value we provide 
+                to our community. We continuously update our content to ensure relevance 
+                and quality.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- THIRD SECTION: GALLERY & IMAGE -->
+        <section class="gallery-section">
+            <h2>Gallery Showcase</h2>
+            <p>
+                Visual storytelling is an important part of our brand. Below you'll find 
+                a curated selection of imagery that represents our work and values. Each 
+                image tells a unique story about our commitment to quality and innovation.
+            </p>
+            <div class="image-section">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&h=400&fit=crop" 
+                         alt="Professional portrait and workspace" 
+                         width="500" 
+                         height="400">
+                    <figcaption>Team collaboration and creative workspace environment</figcaption>
+                </figure>
+            </div>
+            <p>
+                This gallery represents the essence of our team's dedication and the 
+                collaborative environment we foster. Every project we undertake reflects 
+                our commitment to excellence and innovation.
+            </p>
+        </section>
+
+        <hr>
+
+        <!-- FOURTH SECTION: DATA TABLE -->
+        <section class="data-section" id="data-table">
+            <h2>Data Overview</h2>
+            <p>
+                Below is a comprehensive overview of our key metrics and data points. 
+                This table provides insights into our performance and growth across 
+                various dimensions.
+            </p>
+            <table>
+                <caption>Quarterly Performance Metrics</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Quarter</th>
+                        <th scope="col">Revenue (USD)</th>
+                        <th scope="col">Users</th>
+                        <th scope="col">Growth %</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row">Q1 2024</td>
+                        <td>$125,000</td>
+                        <td>1,250</td>
+                        <td>15%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Q2 2024</td>
+                        <td>$187,500</td>
+                        <td>1,875</td>
+                        <td>50%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Q3 2024</td>
+                        <td>$243,000</td>
+                        <td>2,430</td>
+                        <td>29%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Q4 2024</td>
+                        <td>$325,500</td>
+                        <td>3,255</td>
+                        <td>34%</td>
+                        <td>Active</td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Q1 2025</td>
+                        <td>$412,000</td>
+                        <td>4,120</td>
+                        <td>27%</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <hr>
+
+        <!-- FIFTH SECTION: CONTACT FORM -->
+        <section class="form-section" id="contact-form">
+            <h2>Get In Touch</h2>
+            <p>
+                Have questions or ready to collaborate? Fill out the form below and our 
+                team will get back to you within 24 hours. We look forward to hearing from you!
+            </p>
+            <form>
+                <div class="form-group">
+                    <label for="first-name">First Name:</label>
+                    <input 
+                        type="text" 
+                        id="first-name" 
+                        name="first-name" 
+                        required 
+                        minlength="10" 
+                        maxlength="20"
+                        placeholder="Enter your first name (10-20 characters)">
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Last Name:</label>
+                    <input 
+                        type="text" 
+                        id="last-name" 
+                        name="last-name" 
+                        required 
+                        minlength="10" 
+                        maxlength="20"
+                        placeholder="Enter your last name (10-20 characters)">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        placeholder="Enter your email address">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        required 
+                        maxlength="11"
+                        placeholder="Enter your phone (max 11 characters)">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City:</label>
+                    <select id="city" name="city" required>
+                        <option value="">Select a city</option>
+                        <option value="lagos">Lagos</option>
+                        <option value="ikeja">Ikeja</option>
+                        <option value="vi">Victoria Island</option>
+                        <option value="lekki">Lekki</option>
+                        <option value="ajah">Ajah</option>
+                        <option value="bariga">Bariga</option>
+                        <option value="surulere">Surulere</option>
+                        <option value="isolo">Isolo</option>
+                        <option value="yaba">Yaba</option>
+                        <option value="ikoyi">Ikoyi</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        required 
+                        maxlength="100"
+                        placeholder="Enter your message (max 100 characters)"></textarea>
+                </div>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer-section">
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <p>&copy; 2024 Milestone Project. All rights reserved.</p>
+        <p>Follow us on social media for updates and announcements.</p>
+    </footer>
+</body>
+</html>
