@@ -27,8 +27,6 @@ jobs:
     steps:
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload planet explorer
         uses: actions/upload-pages-artifact@v3
